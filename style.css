@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+ :root {
+	 --space-root: 1rem;
+	 --space-xs: calc(var(--space-root) / 2);
+	 --space-s: calc(var(--space-root) / 1.5);
+	 --space-m: var(--space-root);
+	 --space-l: calc(var(--space-root) * 1.5);
+	 --space-xl: calc(var(--space-root) * 2);
+	 --color-primary: mediumslateblue;
+	 --color-secondary: black;
+	 --color-tertiary: hotpink;
+	 --base-border-radius: 0.25rem;
+	 --ease: cubic-bezier(0.075, 0.82, 0.165, 1);
+	 --duration: 350ms;
+	 --font-family: 'Roboto', sans-serif;
+	 --font-size: 1.25rem;
+}
+ * {
+	 box-sizing: border-box;
+}
+ body {
+	 display: grid;
+	 place-items: center;
+	 margin: 0;
+	 height: 100vh;
+	 padding: var(--space-m);
+	 font-size: var(--font-size);
+	 font-family: var(--font-family);
+	 line-height: 1.2;
+	 background: rgb(39, 130, 248);
+ }
+ a {
+	 color: var(--color-primary);
+}
+ a:focus {
+	 color: var(--color-secondary);
+}
+ h2 {
+	 font-weight: 700;
+	 font-size: calc(var(--font-size) * 1.5);
+}
+ .form {
+	
+	 position: relative;
+	 width: 100%;
+	 max-width: 450px;
+	 margin: 0 auto;
+	 transform: skewY(-5deg) translateY(10%) scale(0.94);
+	 transition: box-shadow var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+ .form:before, .form:after {
+	 content: '';
+	 position: absolute;
+	 pointer-events: none;
+	 background-color: #ebebeb;
+	 width: 25%;
+	 height: 100%;
+	 transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+ .form:before {
+	 top: 0;
+	 right: calc(100% - 1px);
+	 transform-origin: 100% 100%;
+	 transform: skewY(-35deg) scaleX(-1);
+	 z-index: -1;
+}
+ .form:after {
+	 top: 0;
+	 left: calc(100% - 1px);
+	 transform-origin: 0 0;
+	 transform: skewY(-35deg) scaleX(-1);
+	 z-index: 2;
+}
+ .form:hover, .form:focus-within {
+	 transform: scale(1.0001);
+	 box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+}
+ .form:hover:before, .form:focus-within:before, .form:hover:after, .form:focus-within:after {
+	 background-color: white;
+	 transform: skewY(0);
+}
+ .form-inner {
+	 padding: var(--space-xl);
+	 background-color: white;
+	 z-index: 1;
+}
+ .form-inner > * + * {
+	 margin-top: var(--space-xl);
+}
+ .input-wrapper:focus-within label {
+	 color: var(--color-secondary);
+}
+.input-wrapper:focus-within input {
+	 border-color: var(--color-secondary);
+}
+ .input-wrapper + .input-wrapper {
+	 margin-top: var(--space-l);
+}
+ /* .input-group {
+	 position: relative;
+} */
+input[type="file"] {
+	/* Remove the default file input button */
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+  
+	/* Add a custom button */
+	background-color: #29dac9;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+  
+	/* Add some hover effects */
+	:hover {
+	  background-color: #470202;
+	  /* border: bold; */
+	}
+  }
+ .input-group input {
+	 border-radius: var(--base-border-radius);
+	 padding-left: calc(var(--space-s) + 60px);
+ }
+ 
+label {
+	 font-size: calc(var(--font-size) / 1.65);
+	 font-weight: 700;
+	 text-transform: uppercase;
+	 letter-spacing: 0.065rem;
+	 display: block;
+	 margin-bottom: var(--space-xs);
+	 color: var(--color-primary);
+}
+ input {
+	 flex: 1 1 0;
+	 width: 100%;
+	 outline: none;
+	 padding: var(--space-m);
+	 font-size: var(--font-size);
+	 font-family: var(--font-family);
+	 color: var(--color-secondary);
+	 border: 2px solid var(--color-primary);
+}
+ input:focus {
+	 color: var(--color-primary);
+}
+button{
+	justify-content: center;
+	display: flex;
+	padding-left: 80px;
+}
+ .btn {
+	margin: 0 auto;
+	 position: relative;
+	 overflow: hidden;
+	 display: flex;
+	 justify-content: center;
+	  align-items: center;
+	 outline: none;
+	 padding: var(--space-m) var(--space-l);
+	 cursor: pointer;
+	 background-color: bisque;
+	
+}
+ 
+.btn:before,
+.btn:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+.btn:before {
+  height: 0%;
+  width: 2px;
+}
+.btn:after {
+  width: 0%;
+  height: 2px;
+}
+.btn:hover{
+   background: transparent;
+  box-shadow: none;
+}
+.btn:hover:before {
+  height: 100%;
+}
+.btn:hover:after {
+  width: 100%;
+}
+.btn span:hover{
+   color: rgba(2,126,251,1);
+}
+.btn span:before,
+.btn span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+   background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+.btn span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn span:after {
+  width: 0%;
+  height: 2px;
+}
+.btn span:hover:before {
+  height: 100%;
+}
+.btn span:hover:after {
+  width: 100%;
+}
